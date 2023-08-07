@@ -8,6 +8,7 @@ import {AuthRoutingModule} from "./auth/auth-routing.module";
 import {UserComponent} from "./components/user/user.component";
 import {AdminDashboardComponent} from "./components/admin-dashboard/admin-dashboard.component";
 import {TeacherDashboardComponent} from "./components/teacher-dashboard/teacher-dashboard.component";
+import {EgressDashboardComponent} from "./components/egress-dashboard/egress-dashboard.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -15,7 +16,7 @@ const routes: Routes = [
   // { path: 'register-user', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent},
   { path: 'admin-dashboard', component: AdminDashboardComponent},
-  // { path: 'student-dashboard', component: StudentDashboardComponent},
+  { path: 'egress-dashboard', component: EgressDashboardComponent},
   { path: 'teacher-dashboard', component: TeacherDashboardComponent},
   { path: 'user', component: UserComponent },
 

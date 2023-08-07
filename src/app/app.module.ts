@@ -12,6 +12,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {AuthModule} from "./auth/auth.module";
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { TeacherDashboardComponent } from './components/teacher-dashboard/teacher-dashboard.component';
+import { EgressDashboardComponent } from './components/egress-dashboard/egress-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +20,7 @@ import { TeacherDashboardComponent } from './components/teacher-dashboard/teache
     DashboardComponent,
     AdminDashboardComponent,
     TeacherDashboardComponent,
+    EgressDashboardComponent,
 
   ],
   imports: [

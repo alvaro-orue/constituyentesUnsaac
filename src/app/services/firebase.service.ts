@@ -79,6 +79,11 @@ export class FirebaseService {
         up and returns promise */
         this.SendVerificationMail();
         this.SetUserData(result.user);
+        //add user with role to firestore
+        // this.afs.collection('users').doc(result.user?.uid).set({
+        //   role:result.user?.role,
+        // })
+
       })
       .catch((error) => {
         window.alert(error.message);
@@ -125,7 +130,7 @@ export class FirebaseService {
       // semester: user.semester,
       // career: user.career,
       // college: user.college,
-      // name: user.name,
+      role: user.role,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     };

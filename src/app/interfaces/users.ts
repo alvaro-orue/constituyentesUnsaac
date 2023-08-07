@@ -6,6 +6,6 @@ export default interface User {
   college?: string;
   name?: string;
   photoURL?: string;
-  role?: string;
+  role: string;
   emailVerified: boolean;
 }
