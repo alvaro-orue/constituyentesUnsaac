@@ -1,1 +1,54 @@
-<p>login works!</p>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title text-center">Sign In</h3>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Username"
+              #userName
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              #userPassword
+              required
+            />
+          </div>
+
+          <!-- Calling SignIn Api from AuthService -->
+          <div class="form-group">
+            <button
+              class="btn btn-primary btn-block"
+              (click)="authService.SignIn(userName.value, userPassword.value)"
+            >
+              Log in
+            </button>
+          </div>
+
+          <div class="form-group text-center">
+            <span class="or"><span class="orInner">Or</span></span>
+          </div>
+
+          <div class="form-group text-center">
+            <a class="btn btn-link" routerLink="/forgot-password">Forgot Password?</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group text-center mt-3">
+        <p>
+          Don't have an account? <a class="btn btn-link" routerLink="/register">Sign Up</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<!-- Sidebar navigation -->
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-md-2 d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/user">
+              <i class="fas fa-user"></i> User Profile
+            </a>
+          </li>
+          <!-- Calling SignOut() Api from AuthService -->
+          <li class="nav-item">
+            <a class="nav-link" (click)="authService.SignOut()" href="#">
+              <i class="fas fa-sign-out-alt"></i> Log out
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Resto del código de la vista -->
+
+    <!-- Sección para mostrar los datos actualizados -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+    <div *ngIf="isDataLoaded">
+      <h1>PROFILE</h1>
+      <div class="coords">
+        <span class="strong">Uid</span>
+        <strong id="uid">{{userData?.uid}}</strong>
+        <div class="coords">
+          <label class="strong" for="name">Name</label>
+          <strong id="name">{{userData?.name}}</strong>
+        </div>
+        <div class="coords">
+          <label class="strong" for="semester">Semestre</label>
+          <strong id="semester">{{userData?.semester}}</strong>
+        </div>
+        <div class="coords">
+          <label class="strong" for="career">Carrera</label>
+          <strong id="career">{{userData?.career}}</strong>
+        </div>
+        <div class="coords">
+          <label class="strong" for="college">Universidad</label>
+          <strong id="college">{{userData?.college}}</strong>
+        </div>
+      </div>
+    </div>
+      <!-- Mostrar un mensaje de carga mientras los datos están siendo obtenidos -->
+      <div *ngIf="!isDataLoaded">
+        Cargando...
+      </div>
+    </main>
+
+    <!-- Fin de la sección de datos actualizados -->
+
+    <!-- Resto del código de la vista -->
+
+    <!-- Main content -->
+
+
+
+  </div>
+</div>

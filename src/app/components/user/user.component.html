@@ -1,0 +1,57 @@
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+  <h1>UNSAAC: ESCUELA PROFESIONAL DE ING.INFORMATICA</h1>
+
+  <div class="center">
+
+    <!-- Formulario para actualizar datos de usuario -->
+    <form (submit)="updateUserProfile()" class="card">
+      <div class="additional">
+        <div class="user-card">
+          <div class="general">
+            <h1>FOTO / PERFIL</h1>
+          </div>
+
+          <div class="more-info">
+            <h1></h1>
+          </div>
+        </div>
+
+        <!-- Formulario de actualización de datos -->
+        <div *ngIf="authService.userData as user">
+          <h1>PERFIL ESTUDIANTE</h1>
+          <div class="coords">
+            <span class="strong">Uid</span>
+            <strong>{{user?.uid}}</strong>
+            <div class="coords">
+              <label class="strong" for="name">Name</label>
+              <input type="text" id="name" class="form-control" [(ngModel)]="user.name" name="name">
+            </div>
+            <div class="coords">
+              <label class="strong" for="semester">Semestre</label>
+              <input type="text" id="semester" class="form-control" [(ngModel)]="user.semester" name="semester">
+            </div>
+            <div class="coords">
+              <label class="strong" for="career">Carrera</label>
+              <input type="text" id="career" class="form-control" [(ngModel)]="user.career" name="career">
+            </div>
+            <div class="coords">
+              <label class="strong" for="college">Universidad</label>
+              <input type="text" id="college" class="form-control" [(ngModel)]="user.college" name="college">
+            </div>
+          </div>
+          <div class="text-center mt-3">
+            <button type="submit"  class="btn btn-primary">Actualizar Perfil</button>
+
+          </div>
+          <div class="text-center mt-3">
+            <button  class="btn btn-primary" routerLink="/dashboard"   >Mis datos </button>
+
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+</main>
