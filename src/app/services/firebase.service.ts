@@ -130,7 +130,7 @@ export class FirebaseService {
       // semester: user.semester,
       // career: user.career,
       // college: user.college,
-      role: user.role,
+      // role: user.role,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     };
