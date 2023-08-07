@@ -45,7 +45,16 @@ export class FirebaseService {
           if (userData && userData?.role === 'admin') {
             // Usuario con rol de administrador, redirigir a adminDashboard
             this.router.navigate(['admin-dashboard']);
-          } else {
+          } else if (userData && userData?.role === 'student') {
+            // Usuario con rol de estudiante, redirigir a studentDashboard
+            this.router.navigate(['dashboard-student']);
+          } else if (userData && userData?.role === 'teacher') {
+            // Usuario con rol de profesor, redirigir a teacherDashboard
+            this.router.navigate(['dashboard-teacher']);
+          } else if (userData && userData?.role === 'egress') {
+            // Usuario con rol de administrador, dirigible a adminDashboard
+            this.router.navigate(['dashboard-egress']);
+          }else {
             // Usuario no es administrador, redirigir a dashboard
             this.router.navigate(['dashboard']);
           }

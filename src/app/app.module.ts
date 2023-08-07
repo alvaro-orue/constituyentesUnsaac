@@ -11,12 +11,14 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {AuthModule} from "./auth/auth.module";
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { TeacherDashboardComponent } from './components/teacher-dashboard/teacher-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     DashboardComponent,
     AdminDashboardComponent,
+    TeacherDashboardComponent,
 
   ],
   imports: [
