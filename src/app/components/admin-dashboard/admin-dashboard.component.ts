@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FirebaseService} from "../../services/firebase.service";
 
 @Component({
@@ -17,5 +17,18 @@ export class AdminDashboardComponent {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+
+  updateUserRole(user: any) {
+    this.authService.updateUserRole(user.uid, user.role)
+      .then(() => {
+          // alert('Rol de usuario actualizado correctamente');
+          console.log('Rol de usuario actualizado correctamente');
+        })
+      .catch((error) => {
+          // alert('Error al actualizar el rol de usuario');
+          console.log('Error al actualizar el rol de usuario')
+        })
+  }
 }

@@ -45,16 +45,7 @@ export class FirebaseService {
           if (userData && userData?.role === 'admin') {
             // Usuario con rol de administrador, redirigir a adminDashboard
             this.router.navigate(['admin-dashboard']);
-          } else if (userData && userData?.role === 'student') {
-            // Usuario con rol de estudiante, redirigir a studentDashboard
-            this.router.navigate(['dashboard-student']);
-          } else if (userData && userData?.role === 'teacher') {
-            // Usuario con rol de profesor, redirigir a teacherDashboard
-            this.router.navigate(['dashboard-teacher']);
-          } else if (userData && userData?.role === 'egress') {
-            // Usuario con rol de administrador, dirigible a adminDashboard
-            this.router.navigate(['dashboard-egress']);
-          }else {
+          } else {
             // Usuario no es administrador, redirigir a dashboard
             this.router.navigate(['dashboard']);
           }
@@ -195,5 +186,9 @@ export class FirebaseService {
   getAllUsers(): Observable<any[]> {
     const usersRef: AngularFirestoreCollection<any> = this.afs.collection('users');
     return usersRef.valueChanges();
+  }
+
+  updateUserRole(uid: string, role: string) {
+    return this.afs.collection('users').doc(uid).update({ role });
   }
 }
