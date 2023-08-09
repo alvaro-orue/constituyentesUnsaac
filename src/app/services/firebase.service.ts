@@ -40,7 +40,7 @@ export class FirebaseService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.SetUserData(result.user);
+        this.SetUserDataLogin(result.user);
         this.afs.collection<User>('users').doc(result.user?.uid).valueChanges().subscribe((userData) => {
           if (userData && userData?.role === 'admin') {
             // Usuario con rol de administrador, redirigir a adminDashboard
@@ -71,14 +71,14 @@ export class FirebaseService {
   }
 
   // Sign up with email/password
-  SignUp(email: string, password: string) {
+  SignUp(email: string, password: string,role :string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
         this.SendVerificationMail();
-        this.SetUserData(result.user);
+        this.SetUserData(result.user,role);
         //add user with role to firestore
         // this.afs.collection('users').doc(result.user?.uid).set({
         //   role:result.user?.role,
@@ -120,7 +120,7 @@ export class FirebaseService {
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user: any) {
+  SetUserData(user: any,role:string) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
@@ -130,7 +130,24 @@ export class FirebaseService {
       // semester: user.semester,
       // career: user.career,
       // college: user.college,
-      // role: user.role,
+      role: role,
+      photoURL: user.photoURL,
+      emailVerified: user.emailVerified,
+    };
+    return userRef.set(userData, {
+      merge: true,
+    });
+  }
+  SetUserDataLogin(user: any) {
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+      `users/${user.uid}`
+    );
+    const userData: User = {
+      uid: user.uid,
+      email: user.email,
+      // semester: user.semester,
+      // career: user.career,
+      // college: user.college,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     };

@@ -24,18 +24,18 @@
             />
           </div>
           <div class="form-group">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Register"
-              #userRole
-              required
-            />
+            <label for="userRole">Select Role:</label>
+            <select id="userRole" class="form-control" #userRole required>
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+              <option value="egress">Egress</option>
+            </select>
           </div>
+
 
           <!-- Calling SignUp Function from Component -->
           <div class="form-group">
-            <button class="btn btn-primary btn-block" (click)="authService.SignUp(userEmail.value, userPwd.value)">
+            <button class="btn btn-primary btn-block" (click)="authService.SignUp(userEmail.value, userPwd.value,userRole.value)">
               Sign Up
             </button>
           </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FirebaseService} from "../../services/firebase.service";
 
 @Component({
@@ -6,9 +6,9 @@ import {FirebaseService} from "../../services/firebase.service";
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
   userData: any;
-  isDataLoaded = false; // Bandera para verificar si los datos del usuario están disponibles
+  isDataLoaded = false; // Bandera para verifier si los datos del usuario están disponibles
   constructor(public authService: FirebaseService) {}
   ngOnInit() {
     // Llamamos a la función getUserData del servicio para obtener los datos del usuario actualmente logueado

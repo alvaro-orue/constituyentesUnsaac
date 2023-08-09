@@ -57,6 +57,21 @@
       </div>
     </main>
 
+    <!-- dashboard.component.html -->
+    <div *ngIf="userData?.role === 'student'">
+      <h1>Bienvenido Estudiante</h1>
+      <!-- Mostrar contenido específico para estudiantes -->
+    </div>
+    <div *ngIf="userData?.role === 'egress'">
+      <h1>Bienvenido Egresado</h1>
+      <!-- Mostrar contenido específico para egresados -->
+    </div>
+    <div *ngIf="userData?.role === 'teacher'">
+      <h1>Bienvenido Profesor</h1>
+      <!-- Mostrar contenido específico para profesores -->
+    </div>
+
+
     <!-- Fin de la sección de datos actualizados -->
 
     <!-- Resto del código de la vista -->
