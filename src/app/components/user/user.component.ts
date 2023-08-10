@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 export class UserComponent implements OnInit {
 
   form:FormGroup;
+  userData: any;
   constructor(public authService:FirebaseService,public router:Router) {
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required]),
@@ -22,15 +23,18 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.getUserData().subscribe((data) => {
+      this.userData = data;
+    });
   }
 
   updateUserProfile() {
-    const userData = this.authService.userData; // Obtenemos los datos del usuario actualmente logueado
+    // const userData = this.authService.userData; // Obtenemos los datos del usuario actualmente logueado
     const dataToUpdate = {
-      name: userData.name,
-      semester: userData.semester,
-      career: userData.career,
-      college: userData.college
+      name: this.userData.name,
+      semester: this.userData.semester,
+      career: this.userData.career,
+      college: this.userData.college
     };
 
     // Llamamos a la función UpdateUser del servicio para actualizar los datos del usuario
@@ -45,10 +49,5 @@ export class UserComponent implements OnInit {
         console.error('Error al actualizar el perfil:', error);
       });
   }
-
-  // async onSubmit() {
-  //   const response = await this.userService.postUser(this.form.value);
-  //   console.log(response);
-  // }
 
 }

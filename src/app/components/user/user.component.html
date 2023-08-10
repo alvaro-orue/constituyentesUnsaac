@@ -18,26 +18,26 @@
         </div>
 
         <!-- Formulario de actualización de datos -->
-        <div *ngIf="authService.userData as user">
+        <div *ngIf="userData ">
           <h1>PERFIL ESTUDIANTE</h1>
           <div class="coords">
             <span class="strong">Uid</span>
-            <strong>{{user?.uid}}</strong>
+            <strong>{{userData.uid}}</strong>
             <div class="coords">
               <label class="strong" for="name">Name</label>
-              <input type="text" id="name" class="form-control" [(ngModel)]="user.name" name="name">
+              <input type="text" id="name" class="form-control" [(ngModel)]="userData.name" name="name">
             </div>
             <div class="coords">
               <label class="strong" for="semester">Semestre</label>
-              <input type="text" id="semester" class="form-control" [(ngModel)]="user.semester" name="semester">
+              <input type="text" id="semester" class="form-control" [(ngModel)]="userData.semester" name="semester">
             </div>
             <div class="coords">
               <label class="strong" for="career">Carrera</label>
-              <input type="text" id="career" class="form-control" [(ngModel)]="user.career" name="career">
+              <input type="text" id="career" class="form-control" [(ngModel)]="userData.career" name="career">
             </div>
             <div class="coords">
               <label class="strong" for="college">Universidad</label>
-              <input type="text" id="college" class="form-control" [(ngModel)]="user.college" name="college">
+              <input type="text" id="college" class="form-control" [(ngModel)]="userData.college" name="college">
             </div>
           </div>
           <div class="text-center mt-3">
